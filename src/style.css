@@ -1,0 +1,68 @@
+@import './css/reset.css';
+
+:root {
+  --primary-color: #e45560;
+  --accent-color: #173e5b;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* stylelint-disable */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* stylelint-enable */
+
+body {
+  font-family: 'Glacial Indifference', sans-serif;
+  background-color: white;
+}
+
+.header {
+  height: 100vh;
+  background-color: #e45560;
+  display: grid;
+  grid-template-columns: 1fr 2fr 9fr 2fr 1fr;
+  grid-template-rows: 1fr 9fr 1.5fr;
+  grid-template-areas: '. . . . .' '. nav logo search .' '. . arrow datum .';
+  background:
+    url(./assets/img/hero.svg) left 20px/50px 50px no-repeat,
+    url(./assets/img/stripes1.svg) left top/57.99px 554.38px no-repeat;
+}
+
+.nav {
+  grid-area: nav;
+  font-family: coolvetica;
+}
+
+.nav-link-item {
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  color: black;
+}
+
+.search {
+  grid-area: search;
+}
+
+.datum {
+  grid-area: datum;
+}
+
+.arrow {
+  grid-area: arrow;
+  justify-self: center;
+}
+
+.logo {
+  grid-area: logo;
+  justify-self: center;
+}
