@@ -4,11 +4,30 @@ require_once( __DIR__ . '/DAO.php');
 
 class ActsDAO extends DAO {
 
-  public function search($max=10, $name = ''){
-    $sql = "SELECT * FROM `shows` WHERE `Name` LIKE :name ORDER BY `Overall` DESC LIMIT :max";
+  public function search($name = '', $genre = ''){
+    $sql = "SELECT shows.id, shows.show_name, shows.genre, program.id as programid, shows.info, shows.pic, program.date as date, program.start as hour FROM `shows` INNER JOIN `program` ON `shows`.`id` = `program`.`show_id` WHERE 1";
+
+    if (!empty($name)) {
+      $sql .= " AND `show_name` LIKE :name";
+    }
+
+    if (!empty($genre)) {
+      $sql .= " AND `date` LIKE :genre";
+    }
+
+    $sql .= " ORDER BY `show_name` DESC";
+
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':name','%'.$name.'%');
-    $stmt->bindValue(':max', $max);
+    if (!empty($name)) {
+      $stmt->bindValue(':name','%'.$name.'%');
+    }
+
+    if (!empty($genre)) {
+      $stmt->bindValue(':genre','%'.$genre.'%');
+    }
+    // if (!empty($nationality)) {
+    //   $stmt->bindValue(':nationality', $nationality);
+    // }
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }

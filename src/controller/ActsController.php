@@ -25,6 +25,19 @@ class ActsController extends Controller {
     // }
     public function agenda() {
       $this->set('shows', $this->actsDAO->selectAll());
+      $actsDAO = new ActsDAO();
+      if (!empty($_GET['page']) && $_GET['page'] == 'agenda') {
+        $genre = $_GET['genre'];
+        $shows = $this->actsDAO->search($genre);
+
+        // $this->set('nationality',$_GET['nationality']);
+      }else{
+        $shows = $this->actsDAO->search();
+        $this->set('name','');
+      }
+      // $programmas = $playerDAO->test();
+      $this->set('shows', $shows);
+      $this->set('title', "Programma");
 
 
       // $acts = $this->actDAO->search(25, $_GET['name']);

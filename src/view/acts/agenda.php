@@ -34,16 +34,16 @@
       <label for="term" class="form__label">
 <form action="index.php">
   <input type="hidden" name="page" value="agenda">
-        <input class="filter-input" type="radio" name="genre" value="" id="catrad0" <?php if(empty($_GET['genre'])) echo 'checked';?>>
+        <input class="filter-input" type="radio" name="genre" value="" id="catrad0" <?php if(empty($_GET['genre'])) { echo 'checked';}?>>
         <label class="filter-label" for='catrad0'>Alle</label>
 
-        <input class="filter-input" type="radio" name="genre" value="straatact" id="catrad1" <?php if(empty($_GET['genre'])) echo 'checked';?>>
+        <input class="filter-input" type="radio" name="genre" value="straatact" id="catrad1" <?php if(!empty($_GET['genre']) && $_GET['genre'] == 'straatact') { echo 'checked';}?>>
         <label class="filter-label" for='catrad1'>Straatact</label>
 
-        <input class="filter-input" type="radio" name="genre" value="voorstelling" id="catrad2" <?php if(!empty($_GET['genre'])) echo 'checked';?>>
+        <input class="filter-input" type="radio" name="genre" value="voorstelling" id="catrad2" <?php if(!empty($_GET['genre']) && $_GET['genre'] == 'voorstelling') { echo 'checked';}?>>
         <label class="filter-label" for='catrad2'>Voorstelling</label>
 
-        <input class="filter-input" type="radio" name="genre" value="andere" id="catrad3" <?php if(empty($_GET['genre'])) echo 'checked';?>>
+        <input class="filter-input" type="radio" name="genre" value="andere" id="catrad3" <?php if(!empty($_GET['genre']) && $_GET['genre'] == 'andere') { echo 'checked';}?>>
         <label class="filter-label" for='catrad3'>Andere</label>
 
         <!-- <?php foreach($categories as $categorie){ ?>
@@ -61,9 +61,9 @@
   foreach($shows as $show){?>
       <article >
         <img class="act-pic" src="./assets/img/straattheater.jpg" alt="<?php echo($show['show_name']) ?>">
-        <a href="" class="act-link">
+        <a class="act-link" href="index.php?page=detail&amp;id=<?php echo $show['id'];?>">
           <div class="act-info">
-            <p class="act-info__dag"><?php echo($show['date']) ?> <?php echo($show['start']) ?></p>
+            <p class="act-info__dag"><?php echo($show['date']) ?> <?php echo($show['hour']) ?></p>
             <h3 class="act-info__title bold" ><?php echo($show['show_name']) ?></h3>
           </div>
           </a>
