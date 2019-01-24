@@ -207,11 +207,13 @@ body {
 
 .act-info__dag {
   padding-top: 1rem;
+  font-size: 1.4rem;
+  text-transform: capitalize;
 }
 
 .act-info__title {
   padding-bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .aftermovie {
@@ -374,4 +376,17 @@ body {
   padding: 2rem 0 0 2rem;
   width: 65%;
   font-size: 1.5rem;
+}
+
+.acts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: '. . . ';
+  grid-gap: 2rem;
+  width: 70%;
+}
+
+.acts-grid_item {
+  width: 20rem;
+  height: 20rem;
 }

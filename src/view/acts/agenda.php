@@ -30,7 +30,50 @@
 <hr class="divider">
 <main class="main" id="content">
 
+<form action="">
+  <div>
+    <div>
+      <input type="radio" id="all" name="dag" value="all"
+            checked>
+      <label for="huey">All</label>
+    </div>
 
+    <div>
+      <input type="radio" id="" name="dag" value="vrijdag"
+            checked>
+      <label for="vrijdag">Vri</label>
+    </div>
+
+    <div>
+      <input type="radio" id="zaterdag" name="dag" value="zaterdag">
+      <label for="zaterdag">Zat</label>
+    </div>
+
+    <div>
+      <input type="radio" id="zondag" name="dag" value="zondag">
+      <label for="zondag">zon</label>
+    </div>
+  </div>
+  <input type="submit" value="Verzend" class="submit-button">
+</form>
+<section class="acts-grid">
+
+
+<?php
+  foreach($shows as $show){?>
+      <article >
+        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="lol">
+        <a href="" class="act-link">
+          <div class="act-info">
+            <p class="act-info__dag"><?php echo($show['date']) ?> <?php echo($show['start']) ?></p>
+            <h3 class="act-info__title bold" ><?php echo($show['show_name']) ?></h3>
+          </div>
+          </a>
+        </article>
+  <?php } ?>
+
+
+</section>
 
 
 <footer class="footer">
