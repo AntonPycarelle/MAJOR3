@@ -5,15 +5,15 @@ error_reporting(E_ALL);
 
 $routes = array(
   'home' => array(
-    'controller' => 'Players',
+    'controller' => 'Acts',
     'action' => 'index'
   ),
   'agenda' => array(
-    'controller' => 'Players',
+    'controller' => 'Acts',
     'action' => 'agenda'
   ),
   'detail' => array(
-    'controller' => 'Players',
+    'controller' => 'Acts',
     'action' => 'detail'
   )
 );

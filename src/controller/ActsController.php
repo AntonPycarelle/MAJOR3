@@ -1,9 +1,9 @@
 <?php
 
 require_once __DIR__ . '/Controller.php';
-require_once __DIR__ . '/../dao/PlayerDAO.php';
+require_once __DIR__ . '/../dao/ActDAO.php';
 
-class PlayersController extends Controller {
+class ActsController extends Controller {
 
 
   function __construct() {

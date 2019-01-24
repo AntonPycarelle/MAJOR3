@@ -2,7 +2,7 @@
 
 require_once( __DIR__ . '/DAO.php');
 
-class PlayerDAO extends DAO {
+class ActDAO extends DAO {
 
 
 
