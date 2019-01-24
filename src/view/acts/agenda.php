@@ -17,6 +17,8 @@
     </p>
   </div>
 
+
+
   <div class="datum">
     <p>
       <span class="datum_maand">Augustus</span> <br>
@@ -29,32 +31,28 @@
 </header>
 <hr class="divider">
 <main class="main" id="content">
+      <label for="term" class="form__label">
+<form action="index.php">
+  <input type="hidden" name="page" value="agenda">
+        <input class="filter-input" type="radio" name="genre" value="" id="catrad0" <?php if(empty($_GET['genre'])) echo 'checked';?>>
+        <label class="filter-label" for='catrad0'>Alle</label>
 
-<form action="">
-  <div>
-    <div>
-      <input type="radio" id="all" name="dag" value="all"
-            checked>
-      <label for="huey">All</label>
-    </div>
+        <input class="filter-input" type="radio" name="genre" value="straatact" id="catrad1" <?php if(empty($_GET['genre'])) echo 'checked';?>>
+        <label class="filter-label" for='catrad1'>Straatact</label>
 
-    <div>
-      <input type="radio" id="" name="dag" value="vrijdag"
-            checked>
-      <label for="vrijdag">Vri</label>
-    </div>
+        <input class="filter-input" type="radio" name="genre" value="voorstelling" id="catrad2" <?php if(!empty($_GET['genre'])) echo 'checked';?>>
+        <label class="filter-label" for='catrad2'>Voorstelling</label>
 
-    <div>
-      <input type="radio" id="zaterdag" name="dag" value="zaterdag">
-      <label for="zaterdag">Zat</label>
-    </div>
+        <input class="filter-input" type="radio" name="genre" value="andere" id="catrad3" <?php if(empty($_GET['genre'])) echo 'checked';?>>
+        <label class="filter-label" for='catrad3'>Andere</label>
 
-    <div>
-      <input type="radio" id="zondag" name="dag" value="zondag">
-      <label for="zondag">zon</label>
-    </div>
-  </div>
-  <input type="submit" value="Verzend" class="submit-button">
+        <!-- <?php foreach($categories as $categorie){ ?>
+          <input class="filter-input" type="radio" name="genre" id="catrad<?php echo $$numCat; ?>" value="<?php echo $categorie['genre'];?>" <?php if(!empty($_GET['genre']) && $_GET['genre'] == $categorie['genre']) echo 'checked';?>>
+          <label class="filter-label" for='catrad<?php echo $numCat; ?>'><?php echo $categorie['genre'];?></label>
+
+        <?php }?> -->
+      </label>
+  <input type="submit" class="submit-button">
 </form>
 <section class="acts-grid">
 
@@ -62,7 +60,7 @@
 <?php
   foreach($shows as $show){?>
       <article >
-        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="lol">
+        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="<?php echo($show['show_name']) ?>">
         <a href="" class="act-link">
           <div class="act-info">
             <p class="act-info__dag"><?php echo($show['date']) ?> <?php echo($show['start']) ?></p>

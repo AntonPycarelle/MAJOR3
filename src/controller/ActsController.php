@@ -26,6 +26,7 @@ class ActsController extends Controller {
     public function agenda() {
       $this->set('shows', $this->actsDAO->selectAll());
 
+
       // $acts = $this->actDAO->search(25, $_GET['name']);
     }
 

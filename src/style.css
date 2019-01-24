@@ -384,9 +384,35 @@ body {
   grid-template-areas: '. . . ';
   grid-gap: 2rem;
   width: 70%;
+  margin: 3rem auto;
 }
 
 .acts-grid_item {
   width: 20rem;
   height: 20rem;
+}
+
+.filter-input {
+  visibility: hidden;
+  margin-bottom: 2rem;
+}
+
+.filter-label {
+  cursor: pointer;
+  color: var(--primary-color);
+  font-family: 'Glacial Indifference';
+}
+
+.filter-input:checked + .filter-label {
+  color: var(--accent-color);
+}
+
+.filter__form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  font-size: 2rem;
+  padding-bottom: 9rem;
 }

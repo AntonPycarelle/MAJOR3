@@ -21,6 +21,13 @@ class ActsDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function selectAllCategories() {
+    $sql = "SELECT DISTINCT `genre` FROM `shows`";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   public function selectAll() {
     $sql = "SELECT * FROM `shows` INNER JOIN `program` on `shows`.`id` = `program`.`show_id` INNER JOIN `locations` ON`locations`.`id` = `program`.`location_id`";
     $stmt = $this->pdo->prepare($sql);
