@@ -37,7 +37,7 @@ class ActsController extends Controller {
       }
       // $programmas = $playerDAO->test();
       $this->set('shows', $shows);
-      $this->set('title', "Programma");
+      $this->set('title', "agenda");
 
 
       // $acts = $this->actDAO->search(25, $_GET['name']);
