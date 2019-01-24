@@ -26,6 +26,10 @@ body {
   background-color: white;
 }
 
+.main {
+  /* background: url(./assets/img/trapees.svg) right -1rem/218.28px 522.69px no-repeat; */
+}
+
 .header {
   height: 100vh;
   display: grid;
@@ -123,7 +127,7 @@ body {
 }
 
 .uitgelicht-grid-container {
-  width: 96rem;
+  width: 69%;
   margin: 0 auto;
   height: 60rem;
   display: grid;
@@ -184,6 +188,13 @@ body {
   transition: opacity .2s;
 }
 
+.act-pic-agenda {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
 .act-info {
   grid-area: info;
   height: 100%;
@@ -219,6 +230,7 @@ body {
   grid-template-areas: '. . . . .' '. . . . .';
   width: 80rem;
   height: 30rem;
+  margin: 3rem auto;
 }
 
 .insta-text {
@@ -232,7 +244,7 @@ body {
 }
 
 .footer-grid-container {
-  width: 96rem;
+  width: 69%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -243,6 +255,7 @@ body {
 
 .footer-nav {
   grid-area: footer-nav;
+  color: white;
 }
 
 .footer-info {
@@ -250,4 +263,115 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: space-around;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.border {
+  border: var(--accent-color) solid 1px;
+}
+
+.error {
+  color: white;
+  text-align: center;
+}
+
+.form-wrapper {
+  background-color: var(--primary-color);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.white {
+  color: white;
+  letter-spacing: .1rem;
+}
+
+.form-text {
+  font-family: coolvetica, sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: -1rem;
+}
+
+.input {
+  border-radius: .9rem;
+  padding: .4rem .6rem;
+  width: 20rem;
+  text-align: center;
+  border: transparent solid 1px;
+}
+
+.form {
+  display: flex;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.submit-button {
+  width: 10rem;
+  text-align: center;
+  height: 100%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.detail01-grid-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'detail01-foto detail01-details' 'detail01-uitleg detail01-uitleg';
+  width: 96rem;
+  height: 65rem;
+  font-family: coolvetica;
+  margin: 0 auto;
+}
+
+.detail01-foto {
+  grid-area: detail01-foto;
+  background-color: purple;
+}
+
+.detail01-details {
+  grid-area: detail01-details;
+}
+
+.detail01-uitleg {
+  grid-area: detail01-uitleg;
+}
+
+.detail01-details__title {
+  font-size: 4rem;
+  padding: 2rem 0 0 2rem;
+}
+
+.detail01-details__para {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60%;
+  font-size: 2rem;
+  padding: 2rem 0 2rem 2rem;
+}
+
+.para-data {
+  font-family: 'Glacial Indifference';
+}
+
+.detail01-uitleg__text {
+  font-family: 'Glacial Indifference';
+  padding: 2rem 0 0 2rem;
+  width: 65%;
+  font-size: 1.5rem;
 }

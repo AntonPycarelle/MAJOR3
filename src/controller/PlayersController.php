@@ -12,6 +12,8 @@ class PlayersController extends Controller {
 
   public function index() {
 
+    $this->set('title', 'home');
+
     }
     // if (strtolower($_SERVER['HTTP_ACCEPT']) == 'application/json') {
 
@@ -19,4 +21,10 @@ class PlayersController extends Controller {
     //   echo json_encode($players);
     //   exit();
     // }
+    public function agenda() {
+    }
+
+    public function detail() {
+    }
   }
+

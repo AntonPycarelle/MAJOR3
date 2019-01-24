@@ -7,11 +7,25 @@ $routes = array(
   'home' => array(
     'controller' => 'Players',
     'action' => 'index'
+  ),
+  'agenda' => array(
+    'controller' => 'Players',
+    'action' => 'agenda'
+  ),
+  'detail' => array(
+    'controller' => 'Players',
+    'action' => 'detail'
   )
 );
 
 if(empty($_GET['page'])) {
   $_GET['page'] = 'home';
+}
+if(empty($_GET['page'])) {
+  $_GET['page'] = 'agenda';
+}
+if(empty($_GET['page'])) {
+  $_GET['page'] = 'detail';
 }
 if(empty($routes[$_GET['page']])) {
   header('Location: index.php');
