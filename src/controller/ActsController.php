@@ -35,7 +35,15 @@ class ActsController extends Controller {
         if(isset($_GET['dag'])){
           $dag = $_GET['dag'];
         }
-        $shows = $this->actsDAO->search($genre, $dag);
+        $name = null;
+        if(isset($_GET['search'])){
+          $name = $_GET['search'];
+        }
+        $loca = null;
+        if(isset($_GET['locatie'])){
+          $loca = $_GET['locatie'];
+        }
+        $shows = $this->actsDAO->search($genre, $dag, $name, $loca);
 
         // $this->set('nationality',$_GET['nationality']);
       }else{
@@ -47,10 +55,13 @@ class ActsController extends Controller {
       $this->set('title', "agenda");
 
 
+      $this->set('locations', $this->actsDAO->selectAllLocations());
+
       // $acts = $this->actDAO->search(25, $_GET['name']);
     }
 
     public function detail() {
+
     }
   }
 

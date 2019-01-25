@@ -4,8 +4,14 @@ require_once( __DIR__ . '/DAO.php');
 
 class ActsDAO extends DAO {
 
-  public function search($genre = '', $dag = ''){
-    $sql = "SELECT shows.id as showid, shows.show_name, shows.genre, program.id as programid, shows.info, shows.pic, program.date as dag, program.start as hour FROM `shows` INNER JOIN `program` ON `shows`.`id` = `program`.`show_id` WHERE 1";
+  public function search($genre = '', $dag = '', $name = '', $loca = ''){
+    $sql = "SELECT shows.id as showid, shows.show_name, shows.genre, program.id as programid, shows.info, shows.pic, program.date as dag, program.start as hour, program.location_id, locations.location_name
+    FROM `shows`
+    INNER JOIN `program`
+    ON `shows`.`id` = `program`.`show_id`
+    INNER JOIN `locations`
+    ON `program`.`location_id` = `locations`.`id`
+    WHERE 1";
 
     // if (!empty($name)) {
     //   $sql .= " AND `show_name` LIKE :name";
@@ -16,6 +22,12 @@ class ActsDAO extends DAO {
     }
     if (!empty($dag)) {
       $sql .= " AND `program`.`date` LIKE :dag";
+    }
+    if (!empty($name)) {
+      $sql .= " AND `shows`.`show_name` LIKE :name";
+    }
+    if (!empty($loca)) {
+      $sql .= " AND `locations`.`location_name` LIKE :loca";
     }
 
     $sql .= " ORDER BY `show_name` DESC";
@@ -31,6 +43,14 @@ class ActsDAO extends DAO {
 
     if (!empty($dag)) {
       $stmt->bindValue(':dag','%'.$dag.'%');
+    }
+
+    if (!empty($name)) {
+      $stmt->bindValue(':name','%'.$name.'%');
+    }
+
+    if (!empty($loca)) {
+      $stmt->bindValue(':loca','%'.$loca.'%');
     }
     // if (!empty($nationality)) {
     //   $stmt->bindValue(':nationality', $nationality);
@@ -65,8 +85,8 @@ class ActsDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
-  public function selectAllCategories() {
-    $sql = "SELECT DISTINCT `g` FROM `shows`";
+  public function selectAllLocations() {
+    $sql = "SELECT DISTINCT `location_name` FROM `locations`";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

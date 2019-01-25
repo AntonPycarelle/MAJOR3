@@ -405,12 +405,8 @@ body {
 
 .filter-label {
   cursor: pointer;
-  color: var(--primary-color);
+  color: var(white);
   font-family: 'Glacial Indifference';
-}
-
-.filter-input:checked + .filter-label {
-  color: var(--accent-color);
 }
 
 .filter__form {
@@ -421,4 +417,70 @@ body {
   padding: 3rem;
   font-size: 2rem;
   padding-bottom: 9rem;
+}
+
+.filter-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'filter-search filter-search filter-search filter-search'
+    'filter-dagen filter-dagen filter-dagen filter-dagen'
+    'filter-categorie filter-categorie filter-categorie filter-categorie'
+    'filter-location filter-location filter-location filter-location'
+    'filter-submit filter-submit filter-submit filter-submit';
+  width: 50rem;
+  height: 30rem;
+  grid-gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.filter-search {
+  grid-area: filter-search;
+}
+
+.filter-categorie {
+  grid-area: filter-categorie;
+  font-size: 1.5rem;
+  margin: .5rem 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+}
+
+.filter-location {
+  grid-area: filter-location;
+  background-color: #e45560;
+}
+
+.filter-dagen {
+  grid-area: filter-dagen;
+}
+
+.filter-submit {
+  grid-area: filter-submit;
+  background-color: #e45560;
+}
+
+.dagen-style {
+  background-color: #e45560;
+  padding: 2rem;
+  justify-self: center;
+  border: var(--primary-color) solid .5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.dagen-style:hover {
+  border: var(--accent-color) solid .5rem;
+}
+
+.filter-input:checked + .dagen-style {
+  border: var(--accent-color) solid .5rem;
+}
+
+.dagen-container {
+  display: flex;
+  justify-content: center;
 }
