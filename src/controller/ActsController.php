@@ -24,11 +24,18 @@ class ActsController extends Controller {
     //   exit();
     // }
     public function agenda() {
-      $this->set('shows', $this->actsDAO->selectAll());
+      // $this->set('shows', $this->actsDAO->selectAll());
       $actsDAO = new ActsDAO();
       if (!empty($_GET['page']) && $_GET['page'] == 'agenda') {
-        $genre = $_GET['genre'];
-        $shows = $this->actsDAO->search($genre);
+        $genre = null;
+        if(isset($_GET['genre'])){
+          $genre = $_GET['genre'];
+        }
+        $dag = null;
+        if(isset($_GET['dag'])){
+          $dag = $_GET['dag'];
+        }
+        $shows = $this->actsDAO->search($genre, $dag);
 
         // $this->set('nationality',$_GET['nationality']);
       }else{

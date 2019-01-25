@@ -186,6 +186,7 @@ body {
   object-fit: cover;
   opacity: 1;
   transition: opacity .2s;
+  font-size: 0;
 }
 
 .act-pic-agenda {
@@ -193,6 +194,7 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 1;
+  font-size: 0;
 }
 
 .act-info {
@@ -207,13 +209,17 @@ body {
 
 .act-info__dag {
   padding-top: 1rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: capitalize;
 }
 
 .act-info__title {
   padding-bottom: 1rem;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .aftermovie {

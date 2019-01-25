@@ -31,9 +31,10 @@
 </header>
 <hr class="divider">
 <main class="main" id="content">
-      <label for="term" class="form__label">
+<label for="term" class="form__label">
 <form action="index.php">
   <input type="hidden" name="page" value="agenda">
+  <div>
         <input class="filter-input" type="radio" name="genre" value="" id="catrad0" <?php if(empty($_GET['genre'])) { echo 'checked';}?>>
         <label class="filter-label" for='catrad0'>Alle</label>
 
@@ -45,17 +46,26 @@
 
         <input class="filter-input" type="radio" name="genre" value="andere" id="catrad3" <?php if(!empty($_GET['genre']) && $_GET['genre'] == 'andere') { echo 'checked';}?>>
         <label class="filter-label" for='catrad3'>Andere</label>
+    </div>
 
-        <!-- <?php foreach($categories as $categorie){ ?>
-          <input class="filter-input" type="radio" name="genre" id="catrad<?php echo $$numCat; ?>" value="<?php echo $categorie['genre'];?>" <?php if(!empty($_GET['genre']) && $_GET['genre'] == $categorie['genre']) echo 'checked';?>>
-          <label class="filter-label" for='catrad<?php echo $numCat; ?>'><?php echo $categorie['genre'];?></label>
+    <div>
+        <input class="filter-input" type="radio" name="dag" value="" id="dagrad0" <?php if(empty($_GET['dag'])) { echo 'checked';}?>>
+        <label class="filter-label" for='dagrad0'>Alle</label>
 
-        <?php }?> -->
-      </label>
+        <input class="filter-input" type="radio" name="dag" value="VR 24 - 08" id="dagrad1" <?php if(!empty($_GET['dag']) && $_GET['dag'] == 'straatact') { echo 'checked';}?>>
+        <label class="filter-label" for='dagrad1'>VR 24 - 08</label>
+
+        <input class="filter-input" type="radio" name="dag" value="ZA 25 - 08" id="dagrad2" <?php if(!empty($_GET['dag']) && $_GET['dag'] == 'voorstelling') { echo 'checked';}?>>
+        <label class="filter-label" for='dagrad2'>ZA 25 - 08</label>
+
+        <input class="filter-input" type="radio" name="dag" value="ZO 26 - 08" id="dagrad3" <?php if(!empty($_GET['dag']) && $_GET['dag'] == 'andere') { echo 'checked';}?>>
+        <label class="filter-label" for='dagrad3'>ZO 26 - 08</label>
+    </div>
+  </label>
   <input type="submit" class="submit-button">
 </form>
 <section class="acts-grid">
-
+<h2 class="hidden">Evenementen lijst</h2>
 
 <?php
   foreach($shows as $show){?>
@@ -63,7 +73,15 @@
         <img class="act-pic" src="./assets/img/straattheater.jpg" alt="<?php echo($show['show_name']) ?>">
         <a class="act-link" href="index.php?page=detail&amp;id=<?php echo $show['id'];?>">
           <div class="act-info">
-            <p class="act-info__dag"><?php echo($show['date']) ?> <?php echo($show['hour']) ?></p>
+
+            <p class="act-info__dag"><?php echo($show['dag']) ?><?php //echo($show['hour']);
+foreach($show['tijden'] as $tijd){
+// echo $tijd['dag'];?> <?php
+echo $tijd['hour'];
+}
+            // echo "<pre>"; var_dump($show['tijden']); echo "</pre>";
+
+            ?></p>
             <h3 class="act-info__title bold" ><?php echo($show['show_name']) ?></h3>
           </div>
           </a>
