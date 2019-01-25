@@ -32,8 +32,8 @@
 
 <section class="detail">
   <div class="detail-title">
-    <h3>Title</h3>
-    <p>20:30</p>
+    <h3><?php echo $details['show_name'];?></h3>
+    <p><?php echo $details['show_name'];?></p>
   </div>
   <div class="detail01-grid-container">
   <img class="act-pic-agenda detail01-foto" src="./assets/img/straattheater.jpg" alt="lol">

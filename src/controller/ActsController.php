@@ -61,6 +61,8 @@ class ActsController extends Controller {
     }
 
     public function detail() {
+      $details = $this->actsDAO->selectById($_GET['id']);
+      $this->set('details', $details);
 
     }
   }
