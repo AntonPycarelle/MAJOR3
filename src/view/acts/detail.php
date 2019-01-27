@@ -56,7 +56,7 @@
                 } else{
               ?>
               <p class="para-title">Site</p>
-              <a class="para-data button" href="http://<?php echo $details['site'];?>">Bezoek Website</a>
+              <a class="para-data button" target="_blank" href="http://<?php echo $details['site'];?>">Bezoek Website</a>
 
               <?php
                 }

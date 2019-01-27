@@ -58,10 +58,17 @@ class ActsController extends Controller {
       $this->set('shows', $shows);
       $this->set('title', "Agenda");
 
+      // $showsArr = array($shows);
+
 
       $this->set('locations', $this->actsDAO->selectAllLocations());
 
+      if (strtolower($_SERVER['HTTP_ACCEPT']) == 'application/json') {
 
+        header('Content-Type: application/json');
+        echo json_encode($shows);
+        exit();
+      }
 
       // $acts = $this->actDAO->search(25, $_GET['name']);
     }

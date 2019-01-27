@@ -34,6 +34,7 @@ body {
 
 .header-sub {
   /* height: 20vh; */
+  height: 20rem;
   display: grid;
   grid-template-columns: 1fr 1fr 9fr 1fr 1fr;
   grid-template-rows: 2fr 9fr 0;

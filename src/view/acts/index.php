@@ -71,8 +71,9 @@
     <h2 class="tussentitle">
       Hier is alvast een aftermovie van 2017
     </h2>
-      <a  class="aftermovie-link" target="_blank" href="https://www.youtube.com/watch?v=lrlscBtuSUM"><img class="aftermovie-movie" width="560" height="315" src="assets/img/vid.jpg" alt="Aftermovie van 2017 Player"></a>
+      <a  class="aftermovie-link" target="_blank" href="https://www.youtube.com/embed/lrlscBtuSUM"><img class="aftermovie-movie" width="560" height="315" src="assets/img/vid.jpg" alt="Aftermovie van 2017 Player"></a>
 </section>
+
 
 <section>
   <h3 class="tussentitle">#ISB2018</h3>
@@ -103,7 +104,7 @@
   </div>
   <div>
       <div class="container-form">
-        <form id="formID" method="POST" action="" novalidate>
+        <form id="formID" method="POST" action="" class="index-form">
           <p class="error big"></p>
           <div class="form-wrapper form">
               <div class="input-group">

@@ -24,7 +24,7 @@
 <hr class="divider">
 <main class="main agenda" id="content">
 <label for="term" class="form__label">
-<form action="index.php" class="filter-grid-container">
+<form action="index.php" class="filter-grid-container filter__form">
   <input type="hidden" name="page" value="agenda">
 
 
@@ -91,7 +91,7 @@ if (!empty($_GET['dag']) || !empty($_GET['locatie']) || !empty($_GET['genre']) |
   </div>
   <?php
 }?>
-<section class="acts-grid">
+<section class="acts-grid shows__list">
 
 <h2 class="hidden">Evenementen lijst</h2>
 
