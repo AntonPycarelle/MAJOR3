@@ -33,7 +33,7 @@ body {
 }
 
 .header-sub {
-  height: 20vh;
+  /* height: 20vh; */
   display: grid;
   grid-template-columns: 1fr 1fr 9fr 1fr 1fr;
   grid-template-rows: 2fr 9fr 0;
@@ -75,6 +75,11 @@ body {
   grid-area: search;
   display: flex;
   flex-direction: row-reverse;
+}
+
+.search-input {
+  border: solid gray 1px;
+  height: 2rem;
 }
 
 .datum {
@@ -154,7 +159,7 @@ body {
   height: 60rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr auto;
   grid-template-areas: 'big big big' '. . .';
   grid-gap: 15px;
 }
@@ -166,12 +171,6 @@ body {
 
 .act-link {
   text-decoration: none;
-  color: white;
-  font-family: var(--glacial-font);
-}
-
-.act-link:hover {
-  text-decoration: underline;
   color: white;
   font-family: var(--glacial-font);
 }
@@ -190,7 +189,7 @@ body {
 .act-pic {
   grid-area: pic;
   width: 100%;
-  height: 20rem;
+  height: 21rem;
   object-fit: cover;
   opacity: 1;
   transition: opacity .2s;
@@ -213,6 +212,11 @@ body {
   justify-content: space-between;
   padding: 0 .5rem;
   background-color: #e45560;
+  font-size: 0;
+}
+
+.act-info:hover {
+  background-color: #173e5b;
 }
 
 .act-info__dag {
@@ -237,19 +241,49 @@ body {
   flex-direction: column;
 }
 
-.aftermovie-movie {
+.aftermovie-link {
   margin: auto;
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.aftermovie-movie {
+  max-width: 100%;
+  min-width: 10%;
+  padding: 2rem;
+  background-color: #e45560;
+  object-fit: cover;
+}
+
+.clear-wrapper {
+  text-align: center;
+  padding: 1rem;
+}
+
+.clear-filter {
+  height: 2.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  align-self: flex-end;
+  display: inline-block;
 }
 
 .insta-grid-container {
   display: grid;
   grid-template-columns: auto-fill;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   grid-template-areas: '. . . . .' '. . . . .';
-  width: 80rem;
+  width: 70%;
   height: 30rem;
   margin: 3rem auto;
+  z-index: -111;
 }
 
 .insta-text {
@@ -349,6 +383,7 @@ body {
   border: none;
   border-radius: 2rem;
   color: white;
+  height: 2rem;
 }
 
 .detail01-grid-container {
@@ -356,7 +391,7 @@ body {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 'detail01-foto detail01-details' 'detail01-uitleg detail01-uitleg';
-  width: 96rem;
+  width: 69%;
   height: 65rem;
   font-family: var(--coolvetica-font);
   margin: 0 auto;
@@ -365,7 +400,6 @@ body {
 
 .detail01-foto {
   grid-area: detail01-foto;
-  background-color: purple;
 }
 
 .detail01-details {
@@ -513,7 +547,15 @@ body {
 
 .filter-submit {
   grid-area: filter-submit;
-  background-color: #e45560;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  box-shadow: none;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  height: 2rem;
 }
 
 .dagen-style {
@@ -537,6 +579,7 @@ body {
 .dagen-container {
   display: flex;
   justify-content: center;
+  justify-content: space-between;
 }
 
 .big {
@@ -566,10 +609,117 @@ body {
   }
 }
 
-@media all and (max-width: 690px) {
+@media all and (max-width: 864px) {
+
+  .insta-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: '. . . ' '. . . ';
+    width: 70%;
+    height: 30rem;
+    margin: 3rem auto;
+    margin-bottom: 10rem;
+  }
+
+  .detail01-grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 25rem 1fr;
+    grid-template-areas:
+      'detail01-foto detail01-details'
+      'detail01-foto detail01-details'
+      'detail01-uitleg detail01-uitleg';
+  }
+
+  .detail-title {
+
+    & h3 {
+      font-size: 4.5rem;
+    }
+  }
+
+  .header {
+    background:
+      url(./assets/img/hero-tablet.svg) left bottom/390.57px 516.51px
+      no-repeat;
+  }
+
+  .header-sub {
+    display: grid;
+    width: 100%;
+    grid-template-columns: .5fr 1.5fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: '. .' 'nav logo' '. .';
+    padding: 0 5rem;
+  }
+
+  .logo-title {
+    font-size: 4.5rem;
+  }
+
+  .logo {
+    padding-top: 2.5rem;
+  }
+
+  .x {
+    display: none;
+  }
+
+  .search {
+    display: none;
+  }
 
   .agenda {
     background: none;
+  }
+}
+
+@media all and (max-width: 690px) {
+
+  .act-pic-feed {
+    height: 100%;
+  }
+
+  .accentkleur {
+    color: black;
+  }
+
+  .header-sub {
+    height: auto;
+    display: grid;
+    width: 100%;
+    grid-template-columns: .5fr 6fr .5fr;
+    grid-template-rows: 1fr 4.5fr 4.5fr 1fr;
+    grid-template-areas: '. . .' '. logo .' '. nav .' '. . .';
+    padding: 0;
+  }
+
+  .detail-title {
+
+    & h3 {
+      font-size: 4rem;
+    }
+  }
+
+  .detail01-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30rem 1fr 1fr;
+    grid-template-areas:
+      'detail01-foto '
+      'detail01-details'
+      'detail01-uitleg';
+    height: 90rem;
+  }
+
+  .logo-title {
+    font-size: 4.3rem;
+  }
+
+  .logo {
+    transform: scale(.1rem);
+    padding-top: 0;
   }
 
   .acts-grid {
@@ -582,7 +732,199 @@ body {
     height: 10rem;
   }
 
+  .nav {
+    font-size: 3rem;
+  }
+
+  .nav-link-item {
+    font-size: 3rem;
+    padding: .5rem;
+  }
+
+  .footer-nav {
+    font-size: 2rem;
+
+    & .nav-link-item {
+      font-size: 2rem;
+    }
+  }
+
+  .filter-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr 1fr .5fr 1fr;
+    grid-template-areas:
+      'filter-search filter-search filter-search filter-search'
+      'filter-dagen filter-dagen filter-dagen filter-dagen'
+      'filter-categorie filter-categorie filter-categorie filter-categorie'
+      'filter-location filter-location filter-location filter-location'
+      'filter-submit filter-submit filter-submit filter-submit';
+    width: 40rem;
+    height: 30rem;
+    grid-gap: 1.5rem;
+    margin: 0 auto;
+  }
+
+  .insta-grid-container {
+    height: 10rem;
+  }
+}
+
+@media all and (max-width: 560px) {
+
+  .detail-title {
+    width: 85%;
+
+    & h3 {
+      font-size: 2.2rem;
+    }
+
+    & p {
+      font-size: 2rem;
+    }
+  }
+
+  .detail01-grid-container {
+    width: 85%;
+  }
+
+  .detail01-foto {
+    width: 88%;
+  }
+
   .logo-title {
-    transform: scale(.5);
+    font-size: 3rem;
+  }
+
+  .logo_int {
+    font-size: 1.3rem;
+  }
+
+  .sub {
+    margin: .5rem 0;
+  }
+
+  .sponsor {
+    width: 10rem;
+    height: 2rem;
+  }
+
+  .filter-grid-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 40rem;
+    justify-content: space-between;
+  }
+
+  .acts-grid {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: '.';
+    grid-gap: 2rem;
+    width: 80%;
+    margin: 3rem auto;
+  }
+
+  .filter-dagen {
+    padding: 0 2rem;
+  }
+
+  .search-input {
+    height: 2rem;
+  }
+
+  .filter-categorie {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -3rem;
+  }
+
+  .detail01-details__title {
+    font-size: 3rem;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .header {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7.5fr 8.5fr 1fr;
+    grid-template-rows: .5fr 1fr 1fr;
+    grid-template-areas: '. logo logo logo' '. nav . .' '. datum datum .';
+  }
+
+  .datum {
+    align-self: flex-end;
+  }
+
+  .uitgelicht-grid-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .uitgelicht-big {
+    display: none;
+  }
+}
+
+@media all and (max-width: 320px) {
+
+  .logo-title {
+    font-size: 2.9rem;
+  }
+
+  .detail01-foto {
+    padding: 0 1rem;
+    width: 100%;
+    height: 70%;
+  }
+
+  .detail01-grid-container {
+    width: 100%;
+    grid-template-rows: 25rem 1fr;
+  }
+
+  .detail-title {
+    width: 100%;
+
+    & h3 {
+      padding: 0 1rem;
+      font-size: 2.2rem;
+    }
+
+    & p {
+      padding: 0 1rem;
+      font-size: 2rem;
+    }
+  }
+
+  .logo_home-fix {
+    align-self: center;
+    justify-self: center;
+    padding-left: 12rem;
+  }
+
+  .accentkleur {
+    color: var(--primary-color);
+  }
+
+  .header {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7.5fr 8.5fr 1fr;
+    grid-template-rows: .9fr 1fr 1fr;
+    grid-template-areas: '. logo logo logo' '. nav . .' '. datum datum .';
+    background: url(./assets/img/hero-mobile.svg) left bottom no-repeat;
   }
 }

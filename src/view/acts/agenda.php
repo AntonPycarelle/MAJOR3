@@ -27,9 +27,11 @@
 <form action="index.php" class="filter-grid-container">
   <input type="hidden" name="page" value="agenda">
 
+
+
   <div class="filter-search">
   <p class="tussentitle">Filter</p>
-  <input type="search" name="search" placeholder="Zoeken" value="<?php echo($search) ?>" autofocus>
+  <input class="search-input" type="search" name="search" placeholder="Zoeken" value="<?php echo($search) ?>" autofocus>
   </div>
 
   <div class="filter-categorie">
@@ -77,14 +79,25 @@
         <?php endforeach;?>
   </select>
 
-  <input class="filter-submit" type="submit" class="submit-button">
+
+  <input class="filter-submit" type="submit">
+
 </form>
+<?php
+if (!empty($_GET['dag']) || !empty($_GET['locatie']) || !empty($_GET['genre']) || !empty($_GET['search'])) {
+?>
+  <div class="clear-wrapper">
+  <a class=" clear-filter" href="index.php?page=agenda">Reset</a>
+  </div>
+  <?php
+}?>
 <section class="acts-grid">
+
 <h2 class="hidden">Evenementen lijst</h2>
 
 <?php
   foreach($shows as $show){?>
-      <article>
+      <article class="bg-primary">
         <div>
         <img class="act-pic" src="./assets/img/<?php echo $show['pic'];?>" alt="<?php echo($show['show_name']) ?>">
         </div>
@@ -114,7 +127,7 @@
     </ul>
   </nav>
   <div class="footer-info">
-    <img src="./assets/img/logobeveren.png" width="203" height="40" alt="Beveren verbindt logo">
+    <img class="sponsor" src="./assets/img/logobeveren.png" width="203" height="40" alt="Beveren verbindt logo">
     <a class="footer-link" href="">info@beveren.be</a>
     <a class="footer-link" href="">0476 38 38 39</a>
   </div>

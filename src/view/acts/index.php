@@ -10,7 +10,7 @@
   <a class="search" href="index.php?page=agenda"><img src="./assets/img/glass.svg" alt="" width="29,07" height="29,07"></a>
 
   <div class="logo" >
-    <p class="logo-title">
+    <p class="logo-title logo_home-fix">
     <span class="logo_int">Internationaal</span><br>
     <span>Straattheater Fest<span class="accentkleur">i</span>val</span><br>
     <span class="logo_int accentkleur a-right">Beveren</span>
@@ -37,7 +37,7 @@
         <a href="index.php?page=detail&id=45" class="act-link">
           <div class="act-info">
             <p class="act-info__dag">Zondag 14:00</p>
-            <h3 class="act-info__title bold" >Title</h3>
+            <h3 class="act-info__title bold" >JACKPOT</h3>
           </div>
           </a>
         </article>
@@ -45,12 +45,15 @@
         <?php
   foreach($uitgelichts as $uitgelicht){?>
 
-    <article class="uitgelicht-event act-grid-container">
-        <img class="act-pic" src="./assets/img/<?php echo $uitgelicht['pic'];?>" alt="<?php echo $uitgelicht['show_name'];?>">
-        <a class="act-link" href="index.php?page=detail&amp;id=<?php echo $uitgelicht['showid'];?>" class="act-link">
-          <div class="act-info act-info-fix">
-            <p class="act-info__dag"><?php echo $uitgelicht['dag'];?></p>
-            <h3 class="act-info__title bold" ><?php echo $uitgelicht['show_name'];?></h3>
+<article class="bg-primary">
+        <div>
+        <img class="act-pic" src="./assets/img/<?php echo $uitgelicht['pic'];?>" alt="<?php echo($uitgelicht['day_name']) ?>">
+        </div>
+        <a class="act-link" href="index.php?page=detail&amp;id=<?php echo $uitgelicht['showid'];?>">
+          <div class="act-info">
+
+            <p class="act-info__dag"><?php echo $uitgelicht['location_name'];?></p>
+            <h3 class="act-info__title bold" ><?php echo($uitgelicht['show_name']) ?></h3>
           </div>
           </a>
         </article>
@@ -68,23 +71,23 @@
     <h2 class="tussentitle">
       Hier is alvast een aftermovie van 2017
     </h2>
-      <a  class="aftermovie-movie" target="_blank" href="https://www.youtube.com/watch?v=lrlscBtuSUM"><img width="560" height="315" src="assets/img/vid.jpg" alt="Aftermovie van 2017 Player"></a>
+      <a  class="aftermovie-link" target="_blank" href="https://www.youtube.com/watch?v=lrlscBtuSUM"><img class="aftermovie-movie" width="560" height="315" src="assets/img/vid.jpg" alt="Aftermovie van 2017 Player"></a>
 </section>
 
 <section>
   <h3 class="tussentitle">#ISB2018</h3>
   <p class="insta-text">Gebruik de hashtag en word gefeatured op onze website</p>
   <div class="insta-grid-container">
-  <img class="act-pic-agenda" src="assets/img/shows/acc.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/castart.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/lava.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/coat.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/horses.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/fish.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/hippo.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/jackpot.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/klei.jpg" alt="Instragram Feed Item">
-  <img class="act-pic-agenda" src="assets/img/shows/lapin.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/acc.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/castart.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/lava.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/coat.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/horses.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/fish.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/hippo.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/jackpot.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed " src="assets/img/shows/klei.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda act-pic-feed  x" src="assets/img/shows/lapin.jpg" alt="Instragram Feed Item">
 
 
 
@@ -118,14 +121,14 @@
   <div class="footer-grid-container">
 <nav class="nav footer-nav">
     <ul>
-      <li><a class="nav-link-item nav-link-item__active" href="">Home</a></li>
-      <li><a class="nav-link-item" href="">Agenda</a></li>
+      <li><a class="nav-link-item <?php if($_GET['page'] == 'home'){ echo 'nav-link-item__active';}?>" href="">Home</a></li>
+      <li><a class="nav-link-item <?php if($_GET['page'] == 'agenda'){ echo 'nav-link-item__active';}?>" href="">Agenda</a></li>
       <li><a class="nav-link-item" href="">Praktisch</a></li>
       <li><a class="nav-link-item" href="">Extra</a></li>
     </ul>
   </nav>
   <div class="footer-info">
-    <img src="./assets/img/logobeveren.png" width="203" height="40" alt="Beveren verbindt logo">
+    <img class="sponsor" src="./assets/img/logobeveren.png" width="203" height="40" alt="Beveren verbindt logo">
     <a class="footer-link" href="">info@beveren.be</a>
     <a class="footer-link" href="">0476 38 38 39</a>
   </div>

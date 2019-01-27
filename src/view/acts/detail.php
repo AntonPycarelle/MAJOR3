@@ -117,7 +117,7 @@
     </ul>
   </nav>
   <div class="footer-info">
-    <img src="./assets/img/logobeveren.png" width="203" height="40" alt="Beveren verbindt logo">
+    <img class="sponsor" src="./assets/img/logobeveren.png" width="203" height="40" alt="Beveren verbindt logo">
     <a class="footer-link" href="">info@beveren.be</a>
     <a class="footer-link" href="">0476 38 38 39</a>
   </div>
