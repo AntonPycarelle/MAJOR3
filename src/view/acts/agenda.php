@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header-sub">
   <nav class="nav">
     <ul>
     <li><a class="nav-link-item <?php if($_GET['page'] == 'home'){ echo 'nav-link-item__active';}?>" href="index.php?page=home">Home</a></li>
@@ -13,45 +13,41 @@
     <p class="logo-title">
     <span class="logo_int">Internationaal</span><br>
     <span>Straattheater Fest<span class="accentkleur">i</span>val</span><br>
-    <span class="logo_int accentkleur a-right">Beveren</span>
+
+    <span class="logo_int accentkleur sub"><span class="black">Augustus 23 - 24 - 25</span> <span>Beveren</span></span>
+
+
     </p>
   </div>
-
-
-
-  <div class="datum">
-    <p>
-      <span class="datum_maand">Augustus</span> <br>
-      23 - 24 - 25
-    </p>
-  </div>
-
-    <a class="arrow" href="#content"><img src="./assets/img/arrow.svg" alt="" height="66,58" width="64,24"></a>
 
 </header>
 <hr class="divider">
-<main class="main" id="content">
+<main class="main agenda" id="content">
 <label for="term" class="form__label">
 <form action="index.php" class="filter-grid-container">
   <input type="hidden" name="page" value="agenda">
-  <input class="filter-search" type="search" name="search" placeholder="Rock au vin">
+
+  <div class="filter-search">
+  <p class="tussentitle">Filter</p>
+  <input type="search" name="search" placeholder="Zoeken" value="<?php echo($search) ?>" autofocus>
+  </div>
 
   <div class="filter-categorie">
     <div>
         <input class="filter-input" type="radio" name="genre" value="" id="catrad0" <?php if(empty($_GET['genre'])) { echo 'checked';}?>>
-        <label class="filter-label" for='catrad0'>Alle</label>
+        <label class="filter-label filter-label_categorie " for='catrad0'>Alle</label>
     </div>
     <div>
         <input class="filter-input" type="radio" name="genre" value="straatact" id="catrad1" <?php if(!empty($_GET['genre']) && $_GET['genre'] == 'straatact') { echo 'checked';}?>>
-        <label class="filter-label" for='catrad1'>Straatact</label>
+        <label class="filter-label filter-label_categorie" for='catrad1'>Straatact</label>
         </div>
     <div>
         <input class="filter-input" type="radio" name="genre" value="voorstelling" id="catrad2" <?php if(!empty($_GET['genre']) && $_GET['genre'] == 'voorstelling') { echo 'checked';}?>>
-        <label class="filter-label" for='catrad2'>Voorstelling</label>
+        <label class="filter-label filter-label_categorie" for='catrad2'>Voorstelling</label>
         </div>
     <div>
         <input class="filter-input" type="radio" name="genre" value="andere" id="catrad3" <?php if(!empty($_GET['genre']) && $_GET['genre'] == 'andere') { echo 'checked';}?>>
-        <label class="filter-label" for='catrad3'>Andere</label>
+        <label class="filter-label filter-label_categorie" for='catrad3'>Andere</label>
     </div>
   </div>
 
@@ -77,7 +73,7 @@
   <select class="filter-location" name="locatie">
           <option value="">Locatie:</option>
         <?php foreach($locations as $location):?>
-          <option value="<?php echo $location['location_name'];?>" <?php if($location == $location['location_name']) echo 'selected';?>><?php echo $location['location_name'];?></option>
+          <option value="<?php echo $location['location_name'];?>" <?php if($loca == $location['location_name']) echo 'selected';?>><?php echo $location['location_name'];?></option>
         <?php endforeach;?>
   </select>
 
@@ -88,8 +84,10 @@
 
 <?php
   foreach($shows as $show){?>
-      <article >
-        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="<?php echo($show['show_name']) ?>">
+      <article>
+        <div>
+        <img class="act-pic" src="./assets/img/<?php echo $show['pic'];?>" alt="<?php echo($show['show_name']) ?>">
+        </div>
         <a class="act-link" href="index.php?page=detail&amp;id=<?php echo $show['showid'];?>">
           <div class="act-info">
 
@@ -104,13 +102,13 @@
 
 </section>
 
-
+<hr class="divider">
 <footer class="footer">
   <div class="footer-grid-container">
 <nav class="nav footer-nav">
     <ul>
-      <li><a class="nav-link-item nav-link-item__active" href="">Home</a></li>
-      <li><a class="nav-link-item" href="">Agenda</a></li>
+      <li><a class="nav-link-item <?php if($_GET['page'] == 'home'){ echo 'nav-link-item__active';}?>" href="">Home</a></li>
+      <li><a class="nav-link-item <?php if($_GET['page'] == 'agenda'){ echo 'nav-link-item__active';}?>" href="">Agenda</a></li>
       <li><a class="nav-link-item" href="">Praktisch</a></li>
       <li><a class="nav-link-item" href="">Extra</a></li>
     </ul>

@@ -11,7 +11,9 @@ class ActsController extends Controller {
   }
 
   public function index() {
-
+    // $this->set('uitgelichts', $this->actsDAO->uitgelicht());
+    $this->set('uitgelichts', $this->actsDAO->selectUitgelicht(3));
+    $this->set('title', "Home");
 
     }
 
@@ -51,11 +53,15 @@ class ActsController extends Controller {
         $this->set('name','');
       }
       // $programmas = $playerDAO->test();
+      $this->set('search', $name);
+      $this->set('loca', $loca);
       $this->set('shows', $shows);
-      $this->set('title', "agenda");
+      $this->set('title', "Agenda");
 
 
       $this->set('locations', $this->actsDAO->selectAllLocations());
+
+
 
       // $acts = $this->actDAO->search(25, $_GET['name']);
     }
@@ -63,7 +69,14 @@ class ActsController extends Controller {
     public function detail() {
       $details = $this->actsDAO->selectById($_GET['id']);
       $this->set('details', $details);
+      $this->set('title', $details['show_name']);
 
+      // $this->set('day', $this->actsDAO->selectByDay());
+      // $this->set('day', $day);
+
+
+      $days = $this->actsDAO->selectByDay($details['dag']);
+      $this->set('days', $days);
     }
   }
 

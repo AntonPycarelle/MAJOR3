@@ -3,6 +3,8 @@
 :root {
   --primary-color: #e45560;
   --accent-color: #173e5b;
+  --glacial-font: 'Glacial Indifference', sans-serif;
+  --coolvetica-font: coolvetica, sans-serif;
 }
 
 html {
@@ -22,18 +24,26 @@ html {
 /* stylelint-enable */
 
 body {
-  font-family: 'Glacial Indifference', sans-serif;
+  font-family: var(--glacial-font);
   background-color: white;
 }
 
-.main {
-  /* background: url(./assets/img/trapees.svg) right -1rem/218.28px 522.69px no-repeat; */
+.agenda {
+  background: url(./assets/img/trapees.svg) right -1rem/218.28px 522.69px no-repeat;
+}
+
+.header-sub {
+  height: 20vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 9fr 1fr 1fr;
+  grid-template-rows: 2fr 9fr 0;
+  grid-template-areas: '. . . . .' '. nav logo search .' '. . arrow datum .';
 }
 
 .header {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 2fr 9fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 9fr 1fr 1fr;
   grid-template-rows: .5fr 9fr 1.2fr;
   grid-template-areas: '. . . . .' '. nav logo search .' '. . arrow datum .';
   background:
@@ -43,7 +53,7 @@ body {
 
 .nav {
   grid-area: nav;
-  font-family: coolvetica;
+  font-family: var(--coolvetica-font);
 }
 
 .nav-link-item {
@@ -105,9 +115,21 @@ body {
   line-height: .5rem;
 }
 
+.logo_int-fix {
+  font-size: 2rem;
+  margin-top: -2rem;
+}
+
 .a-right {
   display: flex;
   flex-direction: row-reverse;
+  margin-top: 1rem;
+}
+
+.sub {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
 }
 
 .divider {
@@ -121,7 +143,7 @@ body {
 
 .tussentitle {
   text-align: center;
-  font-family: coolvetica;
+  font-family: var(--coolvetica-font);
   font-size: 3rem;
   padding: 2rem 0;
 }
@@ -133,7 +155,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: 'big big big' 'event1 event2 event3';
+  grid-template-areas: 'big big big' '. . .';
   grid-gap: 15px;
 }
 
@@ -142,30 +164,16 @@ body {
   background-color: #e45560;
 }
 
-.uitgelicht-event1 {
-  grid-area: event1;
-  background-color: #e45560;
-}
-
-.uitgelicht-event2 {
-  grid-area: event2;
-}
-
-.uitgelicht-event3 {
-  grid-area: event3;
-  background-color: #e45560;
-}
-
 .act-link {
   text-decoration: none;
   color: white;
-  font-family: 'Glacial Indifference';
+  font-family: var(--glacial-font);
 }
 
 .act-link:hover {
   text-decoration: underline;
   color: white;
-  font-family: 'Glacial Indifference';
+  font-family: var(--glacial-font);
 }
 
 .bold {
@@ -182,7 +190,7 @@ body {
 .act-pic {
   grid-area: pic;
   width: 100%;
-  height: 80%;
+  height: 20rem;
   object-fit: cover;
   opacity: 1;
   transition: opacity .2s;
@@ -199,7 +207,7 @@ body {
 
 .act-info {
   grid-area: info;
-  height: 100%;
+  height: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -224,10 +232,13 @@ body {
 
 .aftermovie {
   margin: 3rem;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
 }
 
 .aftermovie-movie {
-  text-align: center;
+  margin: auto;
 }
 
 .insta-grid-container {
@@ -323,16 +334,21 @@ body {
   display: flex;
   width: 25%;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin: 0 auto;
 }
 
 .submit-button {
   width: 10rem;
+  font-size: 1.5rem;
   text-align: center;
-  height: 100%;
   margin-top: 1rem;
   margin-left: 1rem;
+  box-shadow: none;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 2rem;
+  color: white;
 }
 
 .detail01-grid-container {
@@ -342,8 +358,9 @@ body {
   grid-template-areas: 'detail01-foto detail01-details' 'detail01-uitleg detail01-uitleg';
   width: 96rem;
   height: 65rem;
-  font-family: coolvetica;
+  font-family: var(--coolvetica-font);
   margin: 0 auto;
+  padding-top: 2rem;
 }
 
 .detail01-foto {
@@ -353,6 +370,7 @@ body {
 
 .detail01-details {
   grid-area: detail01-details;
+  margin: 1rem;
 }
 
 .detail01-uitleg {
@@ -374,11 +392,13 @@ body {
 }
 
 .para-data {
-  font-family: 'Glacial Indifference';
+  font-family: var(--glacial-font);
+  text-transform: capitalize;
+  padding: .2rem 0 2rem;
 }
 
 .detail01-uitleg__text {
-  font-family: 'Glacial Indifference';
+  font-family: var(--glacial-font);
   padding: 2rem 0 0 2rem;
   width: 65%;
   font-size: 1.5rem;
@@ -386,6 +406,7 @@ body {
 
 .acts-grid {
   display: grid;
+  grid-template-rows: auto auto auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: '. . . ';
   grid-gap: 2rem;
@@ -400,13 +421,39 @@ body {
 
 .filter-input {
   visibility: hidden;
-  margin-bottom: 2rem;
+}
+
+.button {
+  text-decoration: none;
+  background-color: var(--accent-color);
+  font-family: var(--coolvetica-font);
+  padding: .5rem 1rem;
+  color: white;
+  border-radius: .4rem;
+  font-size: 1.5rem;
+  display: inline-block;
+  text-align: center;
+  margin: 2rem;
+}
+
+.a-center {
+  margin: auto;
+  text-align: center;
 }
 
 .filter-label {
   cursor: pointer;
   color: var(white);
-  font-family: 'Glacial Indifference';
+  font-family: var(--glacial-font);
+}
+
+.filter-label_categorie {
+  font-size: 1.6rem;
+  margin-left: -2rem;
+}
+
+.filter-input:checked + .filter-label_categorie {
+  color: #e45560;
 }
 
 .filter__form {
@@ -422,7 +469,7 @@ body {
 .filter-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3fr 1fr 1fr .5fr 1fr;
   grid-template-areas:
     'filter-search filter-search filter-search filter-search'
     'filter-dagen filter-dagen filter-dagen filter-dagen'
@@ -433,24 +480,31 @@ body {
   height: 30rem;
   grid-gap: 1.5rem;
   margin: 0 auto;
+  padding-left: 8.5rem;
 }
 
 .filter-search {
   grid-area: filter-search;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .filter-categorie {
   grid-area: filter-categorie;
   font-size: 1.5rem;
-  margin: .5rem 0;
   font-weight: bold;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  padding-top: 2.5rem;
 }
 
 .filter-location {
   grid-area: filter-location;
   background-color: #e45560;
+  text-align: center;
+  border: none;
 }
 
 .filter-dagen {
@@ -483,4 +537,52 @@ body {
 .dagen-container {
   display: flex;
   justify-content: center;
+}
+
+.big {
+  height: 2rem;
+  padding: 1rem 0;
+  font-style: italic;
+}
+
+.detail-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 70%;
+  margin: 0 auto;
+  border-bottom: solid 1.5rem black;
+  font-family: var(--coolvetica-font);
+  font-size: 4rem;
+  margin-top: 2rem;
+
+  & h3 {
+    font-size: 6rem;
+  }
+
+  & p {
+    color: var(--primary-color);
+  }
+}
+
+@media all and (max-width: 690px) {
+
+  .agenda {
+    background: none;
+  }
+
+  .acts-grid {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: '. . ';
+  }
+
+  .act-pic {
+    height: 10rem;
+  }
+
+  .logo-title {
+    transform: scale(.5);
+  }
 }

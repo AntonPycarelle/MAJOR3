@@ -33,70 +33,58 @@
     <h2 class="tussentitle">Uitgelicht</h2>
     <div class="uitgelicht-grid-container">
     <article class="uitgelicht-big act-grid-container">
-        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="lol">
-        <a href="" class="act-link">
+        <img class="act-pic" src="./assets/img/shows/jackpot.jpg" alt="Jackpot">
+        <a href="index.php?page=detail&id=45" class="act-link">
           <div class="act-info">
-            <p class="act-info__dag">Vrijdag 20:30</p>
+            <p class="act-info__dag">Zondag 14:00</p>
             <h3 class="act-info__title bold" >Title</h3>
           </div>
           </a>
         </article>
 
-        <article class="uitgelicht-event1 act-grid-container">
-        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="lol">
-        <a href="" class="act-link">
-          <div class="act-info">
-            <p class="act-info__dag">Vrijdag 20:30</p>
-            <h3 class="act-info__title bold" >Title</h3>
+        <?php
+  foreach($uitgelichts as $uitgelicht){?>
+
+    <article class="uitgelicht-event act-grid-container">
+        <img class="act-pic" src="./assets/img/<?php echo $uitgelicht['pic'];?>" alt="<?php echo $uitgelicht['show_name'];?>">
+        <a class="act-link" href="index.php?page=detail&amp;id=<?php echo $uitgelicht['showid'];?>" class="act-link">
+          <div class="act-info act-info-fix">
+            <p class="act-info__dag"><?php echo $uitgelicht['dag'];?></p>
+            <h3 class="act-info__title bold" ><?php echo $uitgelicht['show_name'];?></h3>
           </div>
           </a>
         </article>
 
-        <article class="uitgelicht-event2 act-grid-container">
-        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="lol">
-        <a href="" class="act-link">
-          <div class="act-info">
-            <p class="act-info__dag">Vrijdag 20:30</p>
-            <h3 class="act-info__title bold" >Title</h3>
-          </div>
-          </a>
-        </article>
+  <?php } ?>
 
-        <article class="uitgelicht-event3 act-grid-container">
-        <img class="act-pic" src="./assets/img/straattheater.jpg" alt="lol">
-        <a href="" class="act-link">
-          <div class="act-info">
-            <p class="act-info__dag">Vrijdag 20:30</p>
-            <h3 class="act-info__title bold" >Title</h3>
-          </div>
-          </a>
-        </article>
+    </div>
+
+    <div class="a-center" >
+     <a class="button" href="index.php?page=agenda">Agenda</a>
     </div>
   </section>
 
   <section class="aftermovie">
     <h2 class="tussentitle">
       Hier is alvast een aftermovie van 2017
-    </h2
-    ><div class="aftermovie-movie">
-    <iframe  width="560" height="315" src="https://www.youtube.com/embed/lrlscBtuSUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
-    </div>
+    </h2>
+      <a  class="aftermovie-movie" target="_blank" href="https://www.youtube.com/watch?v=lrlscBtuSUM"><img width="560" height="315" src="assets/img/vid.jpg" alt="Aftermovie van 2017 Player"></a>
 </section>
 
 <section>
   <h3 class="tussentitle">#ISB2018</h3>
   <p class="insta-text">Gebruik de hashtag en word gefeatured op onze website</p>
   <div class="insta-grid-container">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
-  <img class="act-pic-agenda" src="https://picsum.photos/200" alt="lol">
+  <img class="act-pic-agenda" src="assets/img/shows/acc.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/castart.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/lava.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/coat.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/horses.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/fish.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/hippo.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/jackpot.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/klei.jpg" alt="Instragram Feed Item">
+  <img class="act-pic-agenda" src="assets/img/shows/lapin.jpg" alt="Instragram Feed Item">
 
 
 
@@ -116,7 +104,7 @@
           <p class="error big"></p>
           <div class="form-wrapper form">
               <div class="input-group">
-                <label for="">Emailadres:</label><br>
+                <label class="white" for="">Emailadres:</label><br>
                 <input class="input" required type="email" name="Emailadres" placeholder="henk.verstraete@hotmail.com" class="full-width"><br>
               </div>
               <input type="submit" value="Verzend" class="submit-button">
