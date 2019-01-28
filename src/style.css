@@ -180,6 +180,10 @@ body {
   font-weight: bold;
 }
 
+.uitgelicht-big > img {
+  height: 80%;
+}
+
 .act-grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -309,7 +313,7 @@ body {
 
 .footer-nav {
   grid-area: footer-nav;
-  color: white;
+  color: white !important;
 }
 
 .footer-info {
@@ -686,6 +690,10 @@ body {
     color: black;
   }
 
+  .filter-grid-container {
+    padding: 0;
+  }
+
   .header-sub {
     height: auto;
     display: grid;
@@ -874,6 +882,10 @@ body {
     flex-direction: column;
   }
 
+  .accentkleur {
+    color: var(--primary-color);
+  }
+
   .uitgelicht-big {
     display: none;
   }
@@ -913,19 +925,14 @@ body {
   .logo_home-fix {
     align-self: center;
     justify-self: center;
-    padding-left: 12rem;
-  }
-
-  .accentkleur {
-    color: var(--primary-color);
   }
 
   .header {
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 7.5fr 8.5fr 1fr;
+    grid-template-columns: 1fr 1fr 8.5fr 1fr;
     grid-template-rows: .9fr 1fr 1fr;
-    grid-template-areas: '. logo logo logo' '. nav . .' '. datum datum .';
+    grid-template-areas: 'logo logo logo logo' '. nav . .' '. datum datum .';
     background: url(./assets/img/hero-mobile.svg) left bottom no-repeat;
   }
 }

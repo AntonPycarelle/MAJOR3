@@ -122,9 +122,9 @@
   <div class="footer-grid-container">
 <nav class="nav footer-nav">
     <ul>
-      <li><a class="nav-link-item <?php if($_GET['page'] == 'home'){ echo 'nav-link-item__active';}?>" href="">Home</a></li>
-      <li><a class="nav-link-item <?php if($_GET['page'] == 'agenda'){ echo 'nav-link-item__active';}?>" href="">Agenda</a></li>
-      <li><a class="nav-link-item" href="">Praktisch</a></li>
+      <li><a class="nav-link-item  <?php if($_GET['page'] == 'home'){ echo 'nav-link-item__active';}?>" href="">Home</a></li>
+      <li><a class="nav-link-item  <?php if($_GET['page'] == 'agenda'){ echo 'nav-link-item__active';}?>" href="">Agenda</a></li>
+      <li><a class="nav-link-item " href="">Praktisch</a></li>
       <li><a class="nav-link-item" href="">Extra</a></li>
     </ul>
   </nav>

@@ -49,7 +49,7 @@ require('./style.css');
       <div class="act-info">
 
         <p class="act-info__dag">${show['location_name']}</p>
-        <h3 class="act-info__title bold" >${show['dag']}</h3>
+        <h3 class="act-info__title bold" >${show['show_name']}</h3>
       </div>
       </a>
     </article>
